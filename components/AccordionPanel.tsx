@@ -6,6 +6,7 @@ import MuiAccordionSummary, { AccordionSummaryProps } from "@mui/material/Accord
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import { CourseContentType } from "@graphql/course/types";
 
 const Accordion = styled((props: AccordionProps) => <MuiAccordion disableGutters elevation={0} square {...props} />)(
   ({ theme }) => ({
@@ -42,28 +43,29 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
-export default function CustomizedAccordions() {
-  const [expanded, setExpanded] = useState<boolean>(false);
+type CustomizedAccordionsProps = {
+  content: CourseContentType;
+};
 
-  // const handleChange = (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
-  //   setExpanded(newExpanded ? panel : false);
-  // };
+export default function CustomizedAccordions({ content }: CustomizedAccordionsProps) {
+  const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
     <div>
       <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
           <Typography sx={{ fontSize: "16px", fontWeight: "700", letterSpacing: "-.02rem", lineHeight: "1.2" }}>
-            Collapsible Group Item #1
+            {content.name}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <Image src={"/favicon.ico"} width="8" height="8" alt="play-icon" />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
-            leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+          {content.course_content_lectures.map(lecture => (
+            <Typography key={lecture.id}>
+              <Image src={"/favicon.ico"} width="8" height="8" alt="play-icon" />
+              {lecture.name}
+              {lecture.duration}
+            </Typography>
+          ))}
         </AccordionDetails>
       </Accordion>
     </div>
