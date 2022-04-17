@@ -1,3 +1,5 @@
+import { FeedbacksAggregateType } from "@graphql/courses/types";
+
 export type CourseDetail = {
   name: string;
   id: string;
@@ -9,13 +11,7 @@ export type CourseDetail = {
   course_contents: Array<CourseContentType>;
   instructors: Array<InstructorType>;
   feedbacks: Array<FeedbackType>;
-  feedbacks_aggregate: {
-    aggregate: {
-      avg: {
-        rating: number;
-      };
-    };
-  };
+  feedbacks_aggregate: FeedbacksAggregateType;
 };
 
 export type InstructorType = {
@@ -24,6 +20,7 @@ export type InstructorType = {
   photo_url: string;
   description: string;
 };
+
 export type FeedbackType = {
   rating: number;
   id: string;

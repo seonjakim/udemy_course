@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 export const COURSE_LIST = gql`
   query CourseList {
     developer_test_course {
+      id
       name
       short_description
       price
