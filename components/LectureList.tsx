@@ -8,17 +8,17 @@ type LectureListProps = {
 
 const LectureList = ({ lecture }: LectureListProps) => {
   const { duration, name } = lecture;
-  const durationToString = (duration: number) => {
-    const durationToString = duration.toString();
-    const seconds = durationToString.slice(-2);
-    const minutes = durationToString.slice(0, -2) || "0";
-    return `${minutes.length < 2 ? "0" : ""}${minutes}:${seconds}`;
+  const durationToTime = (duration: number): string => {
+    const seconds = duration % 60;
+    const minutes = Math.floor(duration / 60);
+    const padTwoDigits = (num: number): string => num.toString().padStart(2, "0");
+    return `${padTwoDigits(minutes)}:${padTwoDigits(seconds)}`;
   };
   return (
     <StyledLi>
       <PlayCircleIcon fontSize="small" />
       <div>{name}</div>
-      <span>{durationToString(duration)}</span>
+      <span>{durationToTime(duration)}</span>
     </StyledLi>
   );
 };

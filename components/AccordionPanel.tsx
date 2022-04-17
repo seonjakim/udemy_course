@@ -23,13 +23,25 @@ const AccordionPanel = ({ content }: AccordionPanelProps) => {
       },
     },
   } = content;
+
+  const durationToTimeInKorean = (duration: number): string => {
+    const SECONDS_IN_MINUTE = 60;
+    const SECONDS_IN_HOUR = 3600;
+    let time = "";
+    const hours = Math.floor(duration / SECONDS_IN_HOUR);
+    const minutes = Math.floor((duration - hours * 3600) / SECONDS_IN_MINUTE);
+    if (hours) time += `${hours}시간`;
+    if (minutes) time += ` ${minutes}분`;
+    return time;
+  };
+
   return (
     <div>
       <Accordion expanded={expanded} onChange={() => setExpanded(!expanded)}>
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
           <div className="summary-content-container">
             <h3>{name}</h3>
-            <span>{`${count}개 강의 • ${duration}`}</span>
+            <span>{`${count}개 강의 • ${durationToTimeInKorean(duration)}`}</span>
           </div>
         </AccordionSummary>
         <AccordionDetails>
