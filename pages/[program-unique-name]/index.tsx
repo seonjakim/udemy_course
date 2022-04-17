@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import { styled } from "@mui/material/styles";
-import { CourseContentType, CourseDetail, FeedbackType, InstructorType } from "@graphql/course/types";
+import { CourseContentType, CourseDetailType, FeedbackType, InstructorType } from "@graphql/course/types";
 import { COURSE_DETAIL } from "@graphql/course";
 import ExpandableBox from "@components/ExpandableBox";
 import CustomizedAccordions from "@components/AccordionPanel";
@@ -84,12 +84,12 @@ const CourseDetail: NextPage = ({ courseDetail }: InferGetServerSidePropsType<ty
   );
 };
 
-type CourseDetailType = Record<"developer_test_course_by_pk", CourseDetail>;
+type CourseDetailApiType = Record<"developer_test_course_by_pk", CourseDetailType>;
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const programUniqueName = query["program-unique-name"];
 
-  const { data } = await client.mutate<CourseDetailType>({
+  const { data } = await client.mutate<CourseDetailApiType>({
     mutation: COURSE_DETAIL,
     variables: {
       id: programUniqueName,

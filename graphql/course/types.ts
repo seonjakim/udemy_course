@@ -1,6 +1,6 @@
 import { FeedbacksAggregateType } from "@graphql/courses/types";
 
-export type CourseDetail = {
+export type CourseDetailType = {
   name: string;
   id: string;
   cover_url: string;
