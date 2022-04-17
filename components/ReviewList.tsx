@@ -3,7 +3,7 @@ import ExpandableBox from "./ExpandableBox";
 import Rating from "./Rating";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
 type ReviewListProps = {
   feedback: FeedbackType;
@@ -20,7 +20,7 @@ const ReviewList = ({ feedback }: ReviewListProps) => {
     const DAY_IN_MILLISECONDS = 86400000;
     const DAYS_IN_A_WEEK = 7;
     const WEEKS_IN_A_MONTH = 4;
-    const MONTH_IN_A_YEAR = 12;
+    const MONTHS_IN_A_YEAR = 12;
 
     const createdDateInMilliseconds = new Date(createdAt).getTime();
     const currentTimeInMilliseconds = new Date().getTime();
@@ -34,13 +34,13 @@ const ReviewList = ({ feedback }: ReviewListProps) => {
       return `${elapsedDaysToWeek}주 전`;
     }
     const weeksToMonth = Math.floor(elapsedDaysToWeek / WEEKS_IN_A_MONTH);
-    if (weeksToMonth < MONTH_IN_A_YEAR) {
+    if (weeksToMonth < MONTHS_IN_A_YEAR) {
       return `${weeksToMonth}개월 전`;
     }
-    const monthsToYear = Math.floor(weeksToMonth / MONTH_IN_A_YEAR);
+    const monthsToYear = Math.floor(weeksToMonth / MONTHS_IN_A_YEAR);
     return `${monthsToYear}년 전`;
   };
-  getElapsedDate(created_at);
+
   return (
     <Container>
       <strong>{user_name}</strong>
@@ -63,39 +63,39 @@ const ReviewList = ({ feedback }: ReviewListProps) => {
   );
 };
 
-const Container = styled.div`
+const Container = styled("div")`
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 16px 0;
+  gap: ${({ theme }) => theme.spacing(1)};
+  padding: ${({ theme }) => theme.spacing(2, 0)};
   & > strong {
     font-size: 16px;
   }
   & > span {
-    color: #1c1d1f;
+    color: ${({ theme }) => theme.palette.primary.contrastText};
     font-size: 12px;
   }
   & > .rating-date-container {
     display: flex;
-    gap: 8px;
+    gap: ${({ theme }) => theme.spacing(1)};
     & > span {
-      color: #6a6f73;
+      color: ${({ theme }) => theme.palette.secondary.contrastText};
     }
   }
   & > .reaction-content-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: ${({ theme }) => theme.spacing(1)};
     & > button {
       width: 40px;
       height: 40px;
       border: 1px solid #1c1d1f;
       border-radius: 50%;
-      color: #1c1d1f;
+      color: ${({ theme }) => theme.palette.primary.contrastText};
       cursor: pointer;
     }
     & > span {
-      margin-left: 8px;
+      margin-left: ${({ theme }) => theme.spacing(1)};
       text-decoration: underline;
       cursor: pointer;
     }

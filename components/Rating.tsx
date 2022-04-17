@@ -1,12 +1,12 @@
 import MuiRating, { RatingProps } from "@mui/material/Rating";
 import { styled } from "@mui/material/styles";
 
-const Rating = styled((props: RatingProps) => <MuiRating precision={0.5} {...props} />)(() => ({
+const Rating = styled((props: RatingProps) => <MuiRating precision={0.5} {...props} />)(({ theme }) => ({
   label: {
-    color: "#e59819",
+    color: theme.palette.secondary.main,
   },
   span: {
-    color: "#e59819",
+    color: theme.palette.secondary.main,
   },
 }));
 

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 import { CourseContentLectureType } from "@graphql/course/types";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 
@@ -23,13 +23,13 @@ const LectureList = ({ lecture }: LectureListProps) => {
   );
 };
 
-const StyledLi = styled.li`
-  padding: 8px 0;
+const StyledLi = styled("li")`
+  padding: ${({ theme }) => theme.spacing(1, 0)};
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 16px;
+  gap: ${({ theme }) => theme.spacing(2)};
   & > span {
-    color: #6a6f73;
+    color: ${({ theme }) => theme.palette.secondary.contrastText};
   }
 `;
 
