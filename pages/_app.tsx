@@ -13,7 +13,6 @@ export const client = new ApolloClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // const client = useApollo(pageProps);
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>

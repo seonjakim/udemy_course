@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import { styled } from "@mui/material/styles";
 import { CourseContentType, CourseDetail, FeedbackType, InstructorType } from "@graphql/course/types";
 import { COURSE_DETAIL } from "@graphql/course";
@@ -9,7 +9,7 @@ import ReviewList from "@components/ReviewList";
 import Rating from "@components/Rating";
 import { client } from "pages/_app";
 
-const CourseDetail = ({ courseDetail }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const CourseDetail: NextPage = ({ courseDetail }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const {
     cover_url,
     name,
