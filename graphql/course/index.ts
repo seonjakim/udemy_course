@@ -22,16 +22,34 @@ export const COURSE_DETAIL = gql`
             id
           }
         }
+        course_content_lectures_aggregate {
+          aggregate {
+            sum {
+              duration
+            }
+            count
+          }
+        }
       }
       instructors {
         id
         name
         photo_url
+        description
       }
       feedbacks {
         rating
         id
         user_name
+        content
+        created_at
+      }
+      feedbacks_aggregate {
+        aggregate {
+          avg {
+            rating
+          }
+        }
       }
     }
   }

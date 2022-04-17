@@ -7,15 +7,29 @@ export type CourseDetail = {
   reqirements: string;
   price: number;
   course_contents: Array<CourseContentType>;
-  instructors: Array<{
-    name: string;
-    id: string;
-  }>;
-  feedbacks: Array<{
-    rating: number;
-    id: string;
-    user_name: string;
-  }>;
+  instructors: Array<InstructorType>;
+  feedbacks: Array<FeedbackType>;
+  feedbacks_aggregate: {
+    aggregate: {
+      avg: {
+        rating: number;
+      };
+    };
+  };
+};
+
+export type InstructorType = {
+  name: string;
+  id: string;
+  photo_url: string;
+  description: string;
+};
+export type FeedbackType = {
+  rating: number;
+  id: string;
+  user_name: string;
+  content: string;
+  created_at: string;
 };
 
 export type CourseContentType = {
@@ -23,6 +37,14 @@ export type CourseContentType = {
   id: string;
   course_id: string;
   course_content_lectures: Array<CourseContentLectureType>;
+  course_content_lectures_aggregate: {
+    aggregate: {
+      sum: {
+        duration: number;
+      };
+      count: number;
+    };
+  };
 };
 
 export type CourseContentLectureType = {
