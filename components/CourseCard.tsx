@@ -1,7 +1,7 @@
-import { CourseList } from "@graphql/courses/types";
-import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import Link from "next/link";
+import { styled } from "@mui/material/styles";
+import { CourseList } from "@graphql/courses/types";
 import Rating from "./Rating";
 
 type CourseCardProps = {

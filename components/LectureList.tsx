@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
-import { CourseContentLectureType } from "@graphql/course/types";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import { CourseContentLectureType } from "@graphql/course/types";
 
 type LectureListProps = {
   lecture: CourseContentLectureType;

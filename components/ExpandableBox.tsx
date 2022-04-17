@@ -1,5 +1,5 @@
-import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import { styled } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 type ExpandableBoxProps = {

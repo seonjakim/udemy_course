@@ -2,10 +2,10 @@ import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
 import MuiAccordionSummary, { AccordionSummaryProps } from "@mui/material/AccordionSummary";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { CourseContentLectureType, CourseContentType } from "@graphql/course/types";
 import LectureList from "./LectureList";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 type AccordionPanelProps = {
   content: CourseContentType;

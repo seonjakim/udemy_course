@@ -1,9 +1,9 @@
-import { FeedbackType } from "@graphql/course/types";
-import ExpandableBox from "./ExpandableBox";
-import Rating from "./Rating";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import { styled } from "@mui/material/styles";
+import { FeedbackType } from "@graphql/course/types";
+import ExpandableBox from "./ExpandableBox";
+import Rating from "./Rating";
 
 type ReviewListProps = {
   feedback: FeedbackType;
