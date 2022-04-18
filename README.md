@@ -8,6 +8,11 @@
 
 AWS의 EC2에서 배포했습니다.
 
+# .env
+
+BASE_URI는 .env 파일로 관리했습니다. 로컬에서 실행할 경우 .env 파일을 생성하셔서 다음과 같이 저장하면 작동합니다.
+`BASE_URI=https://playground-dev.futureplay.co/v1/graphql`
+
 # Type
 
 - 대부분 api 데이터와 관련된 type이라 graphql에 gql 정의하는 폴더 내에 type을 함께 정의했습니다.
