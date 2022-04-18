@@ -18,7 +18,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@graphql/*": ["graphql/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@constants/*": ["constants/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
