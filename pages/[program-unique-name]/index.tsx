@@ -40,7 +40,7 @@ const CourseDetail: NextPage = ({ courseDetail }: InferGetServerSidePropsType<ty
               <Rating value={rating} readOnly />
             </div>
             <div className="instructor-container">
-              생성자{" "}
+              생성자
               {instructors.map((instructor: InstructorType) => (
                 <a key={instructor.id}>{instructor.name}</a>
               ))}

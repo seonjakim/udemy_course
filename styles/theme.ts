@@ -2,9 +2,6 @@ import { createTheme } from "@mui/material/styles";
 
 declare module "@mui/material/styles" {
   interface Theme {
-    status: {
-      danger: string;
-    };
     palette: {
       divider: string;
       primary: {
