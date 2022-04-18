@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { styled } from "@mui/material/styles";
 import { CourseList } from "@graphql/courses/types";
@@ -25,9 +24,7 @@ const CourseCard = ({ course }: CourseCardProps) => {
   return (
     <Link href={`/${id}`} passHref>
       <Container>
-        <div>
-          <Image width={260} height={145} src={cover_url} alt="course-cover-image" />
-        </div>
+        <img className="course-image" width={260} height={145} src={cover_url} alt="course-cover-image" />
         <div className="course-info-container">
           <h3>{name}</h3>
           <p>{short_description}</p>
@@ -55,6 +52,17 @@ const Container = styled("div")`
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: ${({ theme }) => theme.spacing(2)};
+  cursor: pointer;
+  &:hover {
+    & > .course-image {
+      filter: brightness(85%);
+    }
+  }
+  & > .course-image {
+    border: 1px solid ${({ theme }) => theme.palette.divider};
+    width: 260px;
+    height: 145px;
+  }
   & > .course-info-container {
     display: flex;
     flex-direction: column;

@@ -92,7 +92,6 @@ const Container = styled("div")`
       border: 1px solid #1c1d1f;
       border-radius: 50%;
       color: ${({ theme }) => theme.palette.primary.contrastText};
-      cursor: pointer;
     }
     & > span {
       margin-left: ${({ theme }) => theme.spacing(1)};

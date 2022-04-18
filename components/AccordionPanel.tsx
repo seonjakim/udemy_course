@@ -5,6 +5,7 @@ import MuiAccordionSummary, { AccordionSummaryProps } from "@mui/material/Accord
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { CourseContentLectureType, CourseContentType } from "@graphql/course/types";
+import { SECONDS_IN_MINUTE } from "@constants/time";
 import LectureList from "./LectureList";
 
 type AccordionPanelProps = {
@@ -25,11 +26,10 @@ const AccordionPanel = ({ content }: AccordionPanelProps) => {
   } = content;
 
   const durationToTimeInKorean = (duration: number): string => {
-    const SECONDS_IN_MINUTE = 60;
     const SECONDS_IN_HOUR = 3600;
     let time = "";
     const hours = Math.floor(duration / SECONDS_IN_HOUR);
-    const minutes = Math.floor((duration - hours * 3600) / SECONDS_IN_MINUTE);
+    const minutes = Math.floor((duration - hours * SECONDS_IN_HOUR) / SECONDS_IN_MINUTE);
     if (hours) time += `${hours}시간`;
     if (minutes) time += ` ${minutes}분`;
     return time;
